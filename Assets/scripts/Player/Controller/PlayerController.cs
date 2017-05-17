@@ -10,9 +10,9 @@ using Game.Portal.Controller;
 using Assets.scripts.Portal.Model;
 
 namespace Game.Player.Controller {
-    class PlayerController : PlayerCollisionNotifier, PlayerTeleportationNotifier {
+    class PlayerController : PlayerCollisionNotifier, PlayerTeleportationNotifier, PlayerTeleportationFinishedNotifier {
 
-        private PortalsController portalsController;
+        private PortalRandomizer portalRandomizer;
         private PlayerDataOutput playerDataOutput;
         private PlayerDeadOutput playerDeadOutput;
         private PlayerTeleportableOutput playerTeleportableOutput;
@@ -30,8 +30,8 @@ namespace Game.Player.Controller {
         public void SetImpactService(ImpactService impactService) {
             this.impactService = impactService;
         }
-        public void SetPortalsController(PortalsController portalsController) {
-            this.portalsController = portalsController;
+        public void SetPortalsController(PortalRandomizer portalRandomizer) {
+            this.portalRandomizer = portalRandomizer;
         }
 
         public void OnCollision(Impactable source, Impactable destiny) {
@@ -47,8 +47,12 @@ namespace Game.Player.Controller {
         }
 
         public void OnTeleportation(PortalData source) {
-            PortalData destiny = portalsController.GetRandomPortal(source);
+            PortalData destiny = portalRandomizer.GetRandomPortal(source);
             playerTeleportableOutput.Teleport(destiny);
+        }
+
+        public void OnTeleportationFinished(PortalData portal) {
+            throw new NotImplementedException();
         }
     }
 }

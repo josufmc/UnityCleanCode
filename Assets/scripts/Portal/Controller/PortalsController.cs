@@ -5,12 +5,17 @@ using System.Linq;
 using System.Text;
 
 namespace Game.Portal.Controller {
-    class PortalsController: PortalRandomizer {
+    class PortalsController: PortalRandomizer, PortalRemover {
 
         private List<PortalController> portalList;
+        private PortalRemoveListener portalRemoveListener;
 
         public PortalsController() {
             portalList = new List<PortalController>();
+        }
+
+        public void SetPortalRemoveListener(PortalRemoveListener portalRemoveListener) {
+            this.portalRemoveListener = portalRemoveListener;
         }
 
         public void AddPortal(PortalController portal) {
@@ -19,12 +24,16 @@ namespace Game.Portal.Controller {
 
         public void RemovePortal(PortalController portal) {
             portalList.Remove(portal);
+            if (portalRemoveListener != null) {
+                portalRemoveListener.PortalRemove(portal.GetPortalData().GetGuid());
+            }
+            portal.Remove();
         }
 
         private PortalController TeleportationDestiny(PortalController sourcePortal) {
             int index = portalList.IndexOf(sourcePortal);
             if (index < portalList.Count - 1) {
-                return portalList[index++];
+                return portalList[index+1];
             }
             return portalList[0];
         }
@@ -45,5 +54,9 @@ namespace Game.Portal.Controller {
             throw new PortalControllerNotFoundException("Portal not found");
         }
 
+        public void RemovePortal(PortalData portal) {
+            PortalController portalController = GetPortalControllerByPortalData(portal);
+            RemovePortal(portalController);
+        }
     }
 }

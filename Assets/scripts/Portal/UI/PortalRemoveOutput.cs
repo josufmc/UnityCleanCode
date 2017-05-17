@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace Game.Portal.UI {
-    public interface PortalTeleportableOutput {
+    public interface PortalRemoveOutput {
+        void Remove();
     }
 }

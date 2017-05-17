@@ -7,10 +7,12 @@ using UnityEngine;
 using System;
 using Game.Player.UI;
 
-public class PortalUI : MonoBehaviour, PortalDataOutput {
+public class PortalUI : MonoBehaviour, PortalDataOutput, PortalRemoveOutput {
 
+    private Guid guid;
     private PortalEnterNotifier portalEnterNotifier;
     private PortalData portalData;
+
 
     public void SetPortalEnterNotifier(PortalEnterNotifier portalEnterNotifier) {
         this.portalEnterNotifier = portalEnterNotifier;
@@ -18,6 +20,15 @@ public class PortalUI : MonoBehaviour, PortalDataOutput {
     public void SetPortalData(PortalData portalData) {
         this.portalData = portalData;
     }
+
+    public void SetGuid(Guid guid) {
+        this.guid = guid;
+    }
+
+    public Guid GetGuid() {
+        return guid;
+    }
+
     public PortalData GetPortalData() {
         return portalData;
     }
@@ -28,5 +39,9 @@ public class PortalUI : MonoBehaviour, PortalDataOutput {
         if(player != null) {
             portalEnterNotifier.OnPortalEnter(player.GetPlayerData());
         }
+    }
+
+    public void Remove() {
+        Destroy(gameObject);
     }
 }

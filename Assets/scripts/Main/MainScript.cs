@@ -13,6 +13,7 @@ using Game.Enemy.Factory;
 using Game.Player.Factory;
 using Assets.scripts.Portal.Factory;
 using Game.Portal.Controller;
+using Game.Portal.UI;
 
 namespace Game.Main {
     public class MainScript : MonoBehaviour {
@@ -28,11 +29,13 @@ namespace Game.Main {
 
             // Groupal controller
             PortalsController portalsController = new PortalsController();
+            PortalUICollection portalUIList = new PortalUICollection();
+            portalsController.SetPortalRemoveListener(portalUIList);
 
             // Factories
-            PlayerFactory playerFactory = new PlayerFactory(portalsController, impactService);
+            PlayerFactory playerFactory = new PlayerFactory(portalsController, portalsController, impactService, portalUIList);
             EnemyFactory enemyFactory = new EnemyFactory(impactService);
-            PortalFactory portalFactory = new PortalFactory(portalsController);
+            PortalFactory portalFactory = new PortalFactory(portalsController, portalUIList);
             
             // References
             PlayerUI playerUI = GameObject.Find("/Player").GetComponent<PlayerUI>();

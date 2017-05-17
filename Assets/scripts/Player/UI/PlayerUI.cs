@@ -7,6 +7,7 @@ using Game.Player.Model;
 using Game.Enemy.UI;
 using Game.Portal.Controller;
 using Assets.scripts.Portal.Model;
+using Game.Portal.UI;
 
 namespace Game.Player.UI {
 
@@ -19,6 +20,8 @@ namespace Game.Player.UI {
 
         private PlayerTeleportationNotifier playerTeleportationNotifier;
         private PlayerCollisionNotifier playerCollisionNotifier;
+        private PortalRemover portalRemover;
+        private PortalUIIdentifier portalUIIdentifier;
         private PlayerData playerData;
 
         void Update() {
@@ -60,6 +63,14 @@ namespace Game.Player.UI {
             this.playerTeleportationNotifier = playerTeleportationNotifier;
         }
 
+        public void SetPortalRemover(PortalRemover portalRemover) {
+            this.portalRemover = portalRemover;
+        }
+
+        public void SetPortalUIIdentifier (PortalUIIdentifier portalUIIdentifier) {
+            this.portalUIIdentifier = portalUIIdentifier;
+        }
+
         public PlayerData GetPlayerData() {
             return playerData;
         }
@@ -73,7 +84,11 @@ namespace Game.Player.UI {
         }
 
         public void Teleport(PortalData portal) {
-           // Obtener UI a partir del PortalData
+            PortalUI target = portalUIIdentifier.GetPortalUI(portal);
+            Transform targetTransform = target.GetComponent<Transform>();
+            transform.position = targetTransform.position + (-targetTransform.forward * 4);
+
+            portalRemover.RemovePortal(portal);
         }
     }
 
