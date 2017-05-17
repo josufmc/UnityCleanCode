@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Game.Enemy.Controller.EnemyController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="6.25" Width="1.5" />
+    <AssociationLine Name="impactService" Type="Game.Impact.Service.ImpactService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="6.5" />
+        <Point X="7.75" Y="6.5" />
+        <Point X="7.75" Y="5.031" />
+        <Point X="9.5" Y="5.031" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAAACAAAAAAAQAAAACAAAAAAAAAAEAIAUAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Enemy\Controller\EnemyController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="impactService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game.Enemy.Model.EnemyData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAACAAAAAABAAAAAAEAAAAAAAAACAAAAAAAABAAA=</HashCode>
+      <FileName>Assets\scripts\Enemy\Model\EnemyData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.127" />
+  </Class>
+  <Class Name="Game.Enemy.UI.EnemyUI" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAAAAAQAAgAAAAAAAAABgAAAAMAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Enemy\UI\EnemyUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="enemyControllerInput" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game.Impact.Service.ImpactService" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Impact\Service\ImpactService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Main.MainScript" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Main\MainScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game.Player.Controller.PlayerController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <AssociationLine Name="impactService" Type="Game.Impact.Service.ImpactService" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="4.281" />
+        <Point X="7.625" Y="4.281" />
+        <Point X="7.625" Y="5" />
+        <Point X="9.5" Y="5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAgAAACQAAAAAAAAAEAYAEAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Player\Controller\PlayerController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="impactService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game.Player.Model.PlayerData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAACAAAAAABAAAAAAAAAAAAAAAACAAAAAAAABAAA=</HashCode>
+      <FileName>Assets\scripts\Player\Model\PlayerData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Game.Player.UI.PlayerUI" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAAEAAAQAAkAAAAAAAAAEgABAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Player\UI\PlayerUI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="playerControllerInput" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Game.Enemy.Controller.EnemyCollisionNotifier" Collapsed="true">
+    <Position X="3" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Enemy\Controller\EnemyCollisionNotifier.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game.Enemy.UI.EnemyDeadOutput" Collapsed="true">
+    <Position X="3" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Enemy\UI\EnemyDeadOutput.cs</FileName>
+      <NewMemberFileName>Assets\scripts\Enemy\UI\EnemyDataOutput.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game.Impact.Model.Impactable" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Impact\Model\Impactable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game.Player.Controller.PlayerCollisionNotifier" Collapsed="true">
+    <Position X="3" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Player\Controller\PlayerCollisionNotifier.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Game.Player.UI.PlayerDeadOutput" Collapsed="true">
+    <Position X="3" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\scripts\Player\UI\PlayerDeadOutput.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
